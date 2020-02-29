@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "603722680647",
+    "firebase_url": "https://snlfirebaseproject-42eb0.firebaseio.com",
+    "project_id": "snlfirebaseproject-42eb0",
+    "storage_bucket": "snlfirebaseproject-42eb0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:603722680647:android:0a3cdf677ff5c3b3f4a462",
+        "android_client_info": {
+          "package_name": "saturday.live.snl"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "603722680647-8llo96edq21d8nh6rsbrsrln04fae74q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "saturday.live.snl",
+            "certificate_hash": "404dfc9c536d0bde05d8d02a356948f8693b04aa"
+          }
+        },
+        {
+          "client_id": "603722680647-projmd8ie2e6qum1eub5mku31s3ql45k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3PCN2ARaAvp1B8Xv_rRFV1eheVt15HYI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "603722680647-projmd8ie2e6qum1eub5mku31s3ql45k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

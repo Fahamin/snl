@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="us.dev.configaddons.activity.More_Activity">
+
+    <item
+        android:id="@+id/action_search"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="Search"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/share"
+       android:icon="@drawable/ic_share_black_24dp"
+        android:title="share"
+        app:showAsAction="always">
+    </item>
+
+    <item
+        android:id="@+id/rate"
+        android:title="Rate this app"></item>
+    <item
+        android:id="@+id/moreApp"
+        android:title="More Apps"></item>
+</menu>
