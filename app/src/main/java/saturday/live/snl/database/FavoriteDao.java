@@ -1,4 +1,4 @@
-package saturday.live.snl;
+package saturday.live.snl.database;
 
 
 import androidx.room.Dao;
