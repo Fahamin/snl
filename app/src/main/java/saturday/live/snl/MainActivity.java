@@ -8,8 +8,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.room.Room;
+
+import saturday.live.snl.database.FavDatabase;
 
 public class MainActivity extends AppCompatActivity {
+    FragmentManager fragmentManager;
+    public static FavDatabase favDatabase;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -18,12 +24,14 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
+                    fragmentManager.beginTransaction().replace(R.id.container,new HomeFrag()).commit();
+
                     return true;
-              /*  case R.id.main_wevID:
-                    startActivity(new Intent(MainActivity.this, More_Activity.class).putExtra("pos", 12));
+                case R.id.navigation_dashboard:
+                    fragmentManager.beginTransaction().replace(R.id.container,new FavFrag()).commit();
                     return true;
 
-                case R.id.main_moreID:
+               /* case R.id.main_moreID:
                     startActivity(new Intent(MainActivity.this, More_Activity.class));
                     return true;*/
             }
@@ -41,6 +49,11 @@ public class MainActivity extends AppCompatActivity {
         // menu should be considered as top level destinations.
 
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        favDatabase = Room.databaseBuilder(getApplicationContext(), FavDatabase.class, "myfavdb").allowMainThreadQueries().build();
+
+        fragmentManager = getSupportFragmentManager();
+
+        fragmentManager.beginTransaction().replace(R.id.container,new HomeFrag()).commit();
 
     }
 }

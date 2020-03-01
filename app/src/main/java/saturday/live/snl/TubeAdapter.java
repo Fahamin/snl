@@ -8,7 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -22,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import saturday.live.snl.api.YouTubApi;
+import saturday.live.snl.database.FavModel;
 
 
 public class TubeAdapter extends RecyclerView.Adapter<TubeAdapter.Myholder> implements Filterable {
@@ -45,7 +48,7 @@ public class TubeAdapter extends RecyclerView.Adapter<TubeAdapter.Myholder> impl
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Myholder myholder, int i) {
+    public void onBindViewHolder(@NonNull final Myholder myholder, int i) {
 
         final TubeDataModel dataModel = videolist.get(i);
         myholder.title.setText(dataModel.getTitle());
@@ -78,7 +81,42 @@ public class TubeAdapter extends RecyclerView.Adapter<TubeAdapter.Myholder> impl
             @Override
             public void onClick(View v) {
 //              addShow();
-               // context.startActivity(new Intent(context, PlayerActivity.class).putExtra("video_id", dataModel.getVideoID()));
+                context.startActivity(new Intent(context, playerview.class).putExtra("video_id", dataModel.getLink()));
+            }
+        });
+
+        if (MainActivity.favDatabase.favoriteDao().isFavorite(dataModel.getId()) == 1) {
+            myholder.favBtn.setImageResource(R.drawable.ic_favfull);
+        } else {
+            myholder.favBtn.setImageResource(R.drawable.ic_fav);
+
+        }
+
+        myholder.favBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FavModel favModel = new FavModel();
+
+                int id = dataModel.getId();
+                String title = dataModel.getTitle();
+                String link = dataModel.getLink();
+                String date = dataModel.getPdate();
+
+                favModel.setId(id);
+                favModel.setTitle(title);
+                favModel.setLink(link);
+                favModel.setDate(date);
+
+                if (MainActivity.favDatabase.favoriteDao().isFavorite(id) != 1) {
+                    myholder.favBtn.setImageResource(R.drawable.ic_favfull);
+                    MainActivity.favDatabase.favoriteDao().addData(favModel);
+                    Toast.makeText(context, " Add to Favorite ", Toast.LENGTH_SHORT).show();
+                } else {
+                    myholder.favBtn.setImageResource(R.drawable.ic_fav);
+                    MainActivity.favDatabase.favoriteDao().delete(favModel);
+                    Toast.makeText(context, "Remove From Favorite", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -92,6 +130,7 @@ public class TubeAdapter extends RecyclerView.Adapter<TubeAdapter.Myholder> impl
         TextView title, pdate;
         YouTubeThumbnailView thumbnailView;
         ConstraintLayout fullLayout;
+        ImageView favBtn;
 
         public Myholder(@NonNull View itemView) {
             super(itemView);
@@ -99,6 +138,7 @@ public class TubeAdapter extends RecyclerView.Adapter<TubeAdapter.Myholder> impl
             title = itemView.findViewById(R.id.tube_titleID);
             pdate = itemView.findViewById(R.id.tubeLengthID);
             fullLayout = itemView.findViewById(R.id.fullTubeViewID);
+            favBtn = itemView.findViewById(R.id.favBtn);
         }
     }
 

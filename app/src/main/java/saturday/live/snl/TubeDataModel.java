@@ -2,17 +2,17 @@ package saturday.live.snl;
 
 public class TubeDataModel {
     int id;
-    String title, link, pdate, key;
+    String title, link, pdate;
 
     public TubeDataModel() {
     }
 
-    public TubeDataModel(int id, String title, String link, String date, String key) {
+    public TubeDataModel(int id, String title, String link, String date) {
         this.id = id;
         this.title = title;
         this.link = link;
         this.pdate = date;
-        this.key = key;
+
     }
 
     public int getId() {
@@ -47,12 +47,6 @@ public class TubeDataModel {
         this.pdate = pdate;
     }
 
-    public String getKey() {
-        return key;
-    }
 
-    public void setKey(String key) {
-        this.key = key;
-    }
 }
 
