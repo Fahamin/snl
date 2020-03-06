@@ -58,7 +58,7 @@ public class HomeFrag extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        recyclerView = view.findViewById(R.id.tube_recID);
+        recyclerView = view.findViewById(R.id.homeRecID);
         videolist = new ArrayList<>();
         activity = getActivity();
 
