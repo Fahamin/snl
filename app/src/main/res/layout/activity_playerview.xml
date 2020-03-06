@@ -5,9 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".playerview">
+
     <com.google.android.youtube.player.YouTubePlayerView
         android:id="@+id/playerID"
         android:layout_gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></com.google.android.youtube.player.YouTubePlayerView>
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"></com.google.android.youtube.player.YouTubePlayerView>
 </androidx.constraintlayout.widget.ConstraintLayout>

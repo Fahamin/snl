@@ -2,6 +2,8 @@ package saturday.live.snl;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import androidx.appcompat.widget.SearchView;
+
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -52,13 +55,13 @@ public class HomeFrag extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home2, container, false);
+        return inflater.inflate(R.layout.fragment_fav, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        recyclerView = view.findViewById(R.id.homeRecID);
+        recyclerView = view.findViewById(R.id.favRecviewID);
         videolist = new ArrayList<>();
         activity = getActivity();
 
@@ -94,10 +97,19 @@ public class HomeFrag extends Fragment {
                     videolist.add(dataModel);
                 }
 
-                adapter = new TubeAdapter(getContext(),videolist,recyclerView);
+                RecyclerView.LayoutManager layoutManagerBeforeMeal = new GridLayoutManager(getContext(), 1);
+                recyclerView.setLayoutManager(layoutManagerBeforeMeal);
+                //  recyclerView.addItemDecoration(new ItemDecorate(1, dpToPx(2), true));
                 recyclerView.setItemAnimator(new DefaultItemAnimator());
-                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-              //  recyclerView.addItemDecoration(new ItemDecorate(1, dpToPx(2), true));
+
+
+                TubeAdapter adapter = new TubeAdapter(getContext(), videolist,recyclerView);
+                adapter.notifyDataSetChanged();
+
+     /*   FBNativeAdapter fbAdapter = FBNativeAdapter.Builder.with(getResources().getString(R.string.nativeID), adapter)
+                .adItemInterval(4)
+                .build();*/
+
                 recyclerView.setAdapter(adapter);
                 progressDialog.dismiss();
             }
