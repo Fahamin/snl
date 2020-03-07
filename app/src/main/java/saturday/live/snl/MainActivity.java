@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.room.Room;
@@ -55,5 +56,11 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentManager.beginTransaction().replace(R.id.container,new HomeFrag()).commit();
 
+
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null)
+        {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
     }
 }

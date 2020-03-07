@@ -20,10 +20,12 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import me.timos.thuanle.fbnativeadadapter.FBNativeAdAdapter;
 import saturday.live.snl.database.FavModel;
 
 
 public class FavFrag extends Fragment {
+
     RecyclerView recyclerView;
     public static List<FavModel> list;
 
@@ -79,11 +81,11 @@ public class FavFrag extends Fragment {
         FavAdapter adapter = new FavAdapter(getContext(), list);
         adapter.notifyDataSetChanged();
 
-     /*   FBNativeAdapter fbAdapter = FBNativeAdapter.Builder.with(getResources().getString(R.string.nativeID), adapter)
-                .adItemInterval(4)
-                .build();*/
+        FBNativeAdAdapter fbAdapter = FBNativeAdAdapter.Builder.with(getResources().getString(R.string.nativeadd), adapter)
+               .adItemIterval(4)
+              .build();
 
-        recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(fbAdapter);
 
     }
 }

@@ -62,4 +62,13 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.0.0'
     annotationProcessor 'androidx.room:room-compiler:2.0.0'
     implementation files('YouTubeAndroidPlayerApi.jar')
+
+    //facebook
+    implementation 'com.facebook.android:audience-network-sdk:5.6.1'
+
+   // implementation project(path: ':audience-network-adapter')
+    //facebook native
+      implementation 'me.timos.thuanle:fb-native-ad-adapter:1.3.2'
+
+    implementation 'com.rockerhieu:rv-adapter:1.0'
 }

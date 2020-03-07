@@ -2,7 +2,6 @@ package saturday.live.snl;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import androidx.appcompat.widget.SearchView;
 
 import android.app.SearchManager;
 import android.content.Context;
@@ -37,6 +36,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import me.timos.thuanle.fbnativeadadapter.FBNativeAdAdapter;
 
 
 public class HomeFrag extends Fragment {
@@ -106,11 +107,11 @@ public class HomeFrag extends Fragment {
                 TubeAdapter adapter = new TubeAdapter(getContext(), videolist,recyclerView);
                 adapter.notifyDataSetChanged();
 
-     /*   FBNativeAdapter fbAdapter = FBNativeAdapter.Builder.with(getResources().getString(R.string.nativeID), adapter)
-                .adItemInterval(4)
-                .build();*/
+     FBNativeAdAdapter  fbAdapter = FBNativeAdAdapter.Builder.with(getResources().getString(R.string.nativeadd), adapter)
+                .adItemIterval(4)
+                .build();
 
-                recyclerView.setAdapter(adapter);
+                recyclerView.setAdapter(fbAdapter);
                 progressDialog.dismiss();
             }
 
@@ -123,7 +124,7 @@ public class HomeFrag extends Fragment {
         });
     }
 
-    @Override
+  /*  @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
@@ -153,7 +154,6 @@ public class HomeFrag extends Fragment {
                 @Override
                 public boolean onQueryTextSubmit(String query) {
                     Log.i("onQueryTextSubmit", query);
-
                     return true;
                 }
             };
@@ -168,7 +168,7 @@ public class HomeFrag extends Fragment {
             case R.id.action_search:
                 // Not implemented here
                 return false;
-           /* case R.id.share:
+           *//* case R.id.share:
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
                 shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Install now");
@@ -184,10 +184,10 @@ public class HomeFrag extends Fragment {
             case R.id.moreApp:
                 Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/dev?id=8697094179003576981"));
                 startActivity(i);
-                break;*/
+                break;*//*
 
         }
         searchView.setOnQueryTextListener(queryTextListener);
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 }

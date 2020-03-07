@@ -22,11 +22,12 @@ public class playerview  extends YouTubeBaseActivity {
 
         playerView = findViewById(R.id.playerID);
 
-      //  final String videoLink = getIntent().getStringExtra("video_id");
-    final String   videoLink = "yBMEoUNbT6w";
+        final String videoLink = getIntent().getStringExtra("video_id");
+ //   final String   videoLink = "yBMEoUNbT6w";
         onInitializedListener = new YouTubePlayer.OnInitializedListener() {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+
 
                 youTubePlayer.loadVideo(videoLink);
             }
