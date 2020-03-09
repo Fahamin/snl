@@ -111,7 +111,7 @@ public class HomeFrag extends Fragment {
                 .adItemIterval(4)
                 .build();
 
-                recyclerView.setAdapter(fbAdapter);
+                recyclerView.setAdapter(adapter);
                 progressDialog.dismiss();
             }
 
