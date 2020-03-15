@@ -68,6 +68,15 @@ public class HomeFrag extends Fragment {
 
         final LinearLayout adContainer = view.findViewById(R.id.banner_container);
 
+     /*   Intent intent = getIntent();
+        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+            String query = intent.getStringExtra(SearchManager.QUERY);
+            doMySearch(query);
+        }
+        */
+
+
+
        /* if (!checkInternet()) {
             adContainer.setVisibility(View.INVISIBLE);
         }
