@@ -86,16 +86,15 @@ public class HomeFrag extends Fragment {
         adView.loadAd();*/
 
 
-
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage("Loading data. Please wait....");
         progressDialog.setCancelable(false);
         progressDialog.show();
 
-       loadData();
+        loadData();
     }
 
-   private void loadData() {
+    private void loadData() {
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -113,12 +112,12 @@ public class HomeFrag extends Fragment {
                 recyclerView.setItemAnimator(new DefaultItemAnimator());
 
 
-                TubeAdapter adapter = new TubeAdapter(getContext(), videolist,recyclerView);
+                TubeAdapter adapter = new TubeAdapter(getContext(), videolist, recyclerView);
                 adapter.notifyDataSetChanged();
 
-     FBNativeAdAdapter  fbAdapter = FBNativeAdAdapter.Builder.with(getResources().getString(R.string.nativeadd), adapter)
-                .adItemIterval(4)
-                .build();
+                FBNativeAdAdapter fbAdapter = FBNativeAdAdapter.Builder.with(getResources().getString(R.string.nativeadd), adapter)
+                        .adItemIterval(4)
+                        .build();
 
                 recyclerView.setAdapter(adapter);
                 progressDialog.dismiss();
@@ -133,7 +132,7 @@ public class HomeFrag extends Fragment {
         });
     }
 
-  /*  @Override
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
@@ -160,6 +159,7 @@ public class HomeFrag extends Fragment {
                     }
                     return true;
                 }
+
                 @Override
                 public boolean onQueryTextSubmit(String query) {
                     Log.i("onQueryTextSubmit", query);
@@ -177,7 +177,7 @@ public class HomeFrag extends Fragment {
             case R.id.action_search:
                 // Not implemented here
                 return false;
-           *//* case R.id.share:
+           /* case R.id.share:
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
                 shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Install now");
@@ -193,10 +193,12 @@ public class HomeFrag extends Fragment {
             case R.id.moreApp:
                 Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/dev?id=8697094179003576981"));
                 startActivity(i);
-                break;*//*
+                break;*/
 
         }
         searchView.setOnQueryTextListener(queryTextListener);
         return super.onOptionsItemSelected(item);
-    }*/
+    }
+
+
 }
