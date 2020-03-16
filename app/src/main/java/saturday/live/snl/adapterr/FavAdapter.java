@@ -1,4 +1,4 @@
-package saturday.live.snl;
+package saturday.live.snl.adapterr;
 
 import android.content.Context;
 
@@ -22,8 +22,11 @@ import com.google.android.youtube.player.YouTubeThumbnailView;
 
 import java.util.List;
 
+import saturday.live.snl.activity.MainActivity;
+import saturday.live.snl.R;
 import saturday.live.snl.api.YouTubApi;
 import saturday.live.snl.database.FavModel;
+import saturday.live.snl.activity.playerview;
 
 
 public class FavAdapter extends RecyclerView.Adapter<FavAdapter.MainHolder> implements Filterable {

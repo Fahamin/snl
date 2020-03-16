@@ -1,11 +1,7 @@
-package saturday.live.snl;
+package saturday.live.snl.activity;
 
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -13,11 +9,14 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.FragmentManager;
 import androidx.room.Room;
 
+import saturday.live.snl.R;
 import saturday.live.snl.database.FavDatabase;
+import saturday.live.snl.fragment.FavFrag;
+import saturday.live.snl.fragment.HomeFrag;
+import saturday.live.snl.fragment.player_playlist;
 
 public class MainActivity extends AppCompatActivity {
     FragmentManager fragmentManager;
@@ -31,15 +30,19 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     fragmentManager.beginTransaction().replace(R.id.container,new HomeFrag()).commit();
+                    setTitle("Video List");
 
                     return true;
                 case R.id.navigation_dashboard:
                     fragmentManager.beginTransaction().replace(R.id.container,new FavFrag()).commit();
+                    setTitle("Favorite List");
+
                     return true;
 
-               /* case R.id.main_moreID:
-                    startActivity(new Intent(MainActivity.this, More_Activity.class));
-                    return true;*/
+                case R.id.navigation_notifications:
+                    fragmentManager.beginTransaction().replace(R.id.container,new player_playlist()).commit();
+                    setTitle("Play List");
+                    return true;
             }
             return false;
         }
@@ -68,6 +71,5 @@ public class MainActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
     }
-
 
 }

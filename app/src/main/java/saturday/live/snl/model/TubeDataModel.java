@@ -1,4 +1,4 @@
-package saturday.live.snl;
+package saturday.live.snl.model;
 
 public class TubeDataModel {
     int id;

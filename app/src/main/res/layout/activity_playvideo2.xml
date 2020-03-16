@@ -8,7 +8,7 @@
     android:layout_gravity="center"
     android:gravity="center"
     android:background="#251F1F"
-    tools:context=".activity.playerview">
+    tools:context=".activity.Playvideo2">
 
     <com.google.android.youtube.player.YouTubePlayerView
         android:id="@+id/playerID"
