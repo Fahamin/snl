@@ -32,6 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import me.timos.thuanle.fbnativeadadapter.FBNativeAdAdapter;
+import saturday.live.snl.Fun;
 import saturday.live.snl.R;
 import saturday.live.snl.adapterr.ListTubeAdapter;
 import saturday.live.snl.model.TubeDataModel;
@@ -72,15 +73,11 @@ public class player_playlist extends Fragment {
         */
 
 
-
-       /* if (!checkInternet()) {
-            adContainer.setVisibility(View.INVISIBLE);
-        }
-*/
         AdView adView = new AdView(getContext(), getString(R.string.banner), AdSize.BANNER_HEIGHT_50);
         adContainer.addView(adView);
         adView.loadAd();
 
+        new Fun(getContext());
 
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setMessage("Loading data. Please wait....");
@@ -112,7 +109,7 @@ public class player_playlist extends Fragment {
                 adapter.notifyDataSetChanged();
 
                 FBNativeAdAdapter fbAdapter = FBNativeAdAdapter.Builder.with(getResources().getString(R.string.nativeadd), adapter)
-                        .adItemIterval(4)
+                        .adItemIterval(3)
                         .build();
 
                 recyclerView.setAdapter(adapter);

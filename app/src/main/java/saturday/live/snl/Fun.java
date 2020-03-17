@@ -2,27 +2,12 @@ package saturday.live.snl;
 
 import android.Manifest;
 import android.app.Activity;
-import android.app.DownloadManager;
-import android.content.BroadcastReceiver;
-import android.content.ContentResolver;
-import android.content.Context;
-import android.content.IntentFilter;
-import android.content.pm.PackageManager;
-import android.content.res.Resources;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Environment;
-import android.util.TypedValue;
-import android.webkit.MimeTypeMap;
-import android.widget.Toast;
 
-import androidx.core.app.ActivityCompat;
-import androidx.recyclerview.widget.RecyclerView;
+import android.content.Context;
 
 import com.facebook.ads.Ad;
 import com.facebook.ads.AdError;
+import com.facebook.ads.InterstitialAd;
 import com.facebook.ads.InterstitialAdListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -40,8 +25,9 @@ public class Fun {
     public static DatabaseReference referenceBuild = FirebaseDatabase.getInstance().getReference("bb");
 
     public static Context context;
+    private static InterstitialAd interstitialAd;
 
-    private static com.facebook.ads.InterstitialAd interstitial;
+
 
     public Fun(Context context) {
         this.context = context;
@@ -49,7 +35,7 @@ public class Fun {
 
 
 
-    public static boolean checkInternet() {
+ /*   public static boolean checkInternet() {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(context.CONNECTIVITY_SERVICE);
         NetworkInfo info = connectivityManager.getActiveNetworkInfo();
 
@@ -60,13 +46,15 @@ public class Fun {
 
         }
     }
-
+*/
     public static void addShow() {
       //  count++;
-        //if (count % 2 == 0) {
+        // if (count % 2 == 0) {
 
-            interstitial = new com.facebook.ads.InterstitialAd(context, context.getString(R.string.insta));
-            interstitial.setAdListener(new InterstitialAdListener() {
+        interstitialAd = new InterstitialAd(context,context.getString(R.string.insta));
+
+
+        interstitialAd.setAdListener(new InterstitialAdListener() {
                 @Override
                 public void onInterstitialDisplayed(Ad ad) {
 
@@ -97,14 +85,14 @@ public class Fun {
 
                 }
             });
-            interstitial.loadAd();
+        interstitialAd.loadAd();
         //}
 
     }
 
     private static void SHOWINSTADD() {
-        if (interstitial.isAdLoaded()) {
-            interstitial.show();
+        if (interstitialAd.isAdLoaded()) {
+            interstitialAd.show();
         }
     }
 

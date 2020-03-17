@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.facebook.ads.AudienceNetworkAds;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.annotation.NonNull;
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentManager.beginTransaction().replace(R.id.container,new HomeFrag()).commit();
 
+        AudienceNetworkAds.initialize(this);
 
         ActionBar actionBar = getSupportActionBar();
         if(actionBar != null)

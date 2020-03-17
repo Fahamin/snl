@@ -28,6 +28,8 @@ import saturday.live.snl.api.YouTubApi;
 import saturday.live.snl.database.FavModel;
 import saturday.live.snl.activity.playerview;
 
+import static saturday.live.snl.Fun.addShow;
+
 
 public class FavAdapter extends RecyclerView.Adapter<FavAdapter.MainHolder> implements Filterable {
 
@@ -92,9 +94,9 @@ public class FavAdapter extends RecyclerView.Adapter<FavAdapter.MainHolder> impl
         holder.fullLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                addShow();
                 context.startActivity(new Intent(context, playerview.class).putExtra("video_id", favModel.getLink()));
 
-                // addShow();
             }
         });
     }

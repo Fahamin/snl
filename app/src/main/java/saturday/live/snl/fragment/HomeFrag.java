@@ -37,6 +37,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import me.timos.thuanle.fbnativeadadapter.FBNativeAdAdapter;
+import saturday.live.snl.Fun;
 import saturday.live.snl.R;
 import saturday.live.snl.adapterr.TubeAdapter;
 import saturday.live.snl.model.TubeDataModel;
@@ -69,6 +70,7 @@ public class HomeFrag extends Fragment {
         activity = getActivity();
 
         final LinearLayout adContainer = view.findViewById(R.id.banner_container);
+        new Fun(getContext());
 
 
 
@@ -112,9 +114,9 @@ public class HomeFrag extends Fragment {
                 TubeAdapter adapter = new TubeAdapter(getContext(), videolist, recyclerView);
                 adapter.notifyDataSetChanged();
 
-                FBNativeAdAdapter fbAdapter = FBNativeAdAdapter.Builder.with(getResources().getString(R.string.nativeadd), adapter)
-                        .adItemIterval(4)
-                        .build();
+                /*FBNativeAdAdapter fbAdapter = FBNativeAdAdapter.Builder.with(getResources().getString(R.string.nativeadd), adapter)
+                        .adItemIterval(3)
+                        .build();*/
 
                 recyclerView.setAdapter(adapter);
                 progressDialog.dismiss();

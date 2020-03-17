@@ -7,10 +7,11 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="nativeadd"></string>
-    <string name="insta"></string>
+    <string name="nativeadd">205505253883880_205505653883840</string>
 
-    <string name="banner"></string>
+    <string name="insta">205505253883880_205506313883774</string>
+
+    <string name="banner">205505253883880_205506783883727</string>
 
     <string name="app_label"></string>
     <string name="search_hint">search</string>

@@ -22,12 +22,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import me.timos.thuanle.fbnativeadadapter.FBNativeAdAdapter;
+import saturday.live.snl.Fun;
 import saturday.live.snl.adapterr.FavAdapter;
 import saturday.live.snl.activity.MainActivity;
 import saturday.live.snl.R;
 import saturday.live.snl.database.FavModel;
-
-import static saturday.live.snl.Fun.checkInternet;
 
 
 public class FavFrag extends Fragment {
@@ -52,12 +51,11 @@ public class FavFrag extends Fragment {
         recyclerView = view.findViewById(R.id.favRecviewID);
 
         list = new ArrayList<>();
-     //   new Fun(getContext());
+
+        new Fun(getContext());
         final LinearLayout adContainer = view.findViewById(R.id.banner_container);
 
-       /* if (!checkInternet()) {
-            adContainer.setVisibility(View.INVISIBLE);
-        }*/
+
 
         AdView adView = new AdView(getContext(), getString(R.string.banner), AdSize.BANNER_HEIGHT_50);
         adContainer.addView(adView);
@@ -91,7 +89,7 @@ public class FavFrag extends Fragment {
                .adItemIterval(4)
               .build();
 
-        recyclerView.setAdapter(fbAdapter);
+        recyclerView.setAdapter(adapter);
 
     }
 }

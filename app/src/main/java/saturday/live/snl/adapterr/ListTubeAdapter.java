@@ -27,6 +27,8 @@ import saturday.live.snl.activity.playerview;
 import saturday.live.snl.model.TubeDataModel;
 import saturday.live.snl.api.YouTubApi;
 
+import static saturday.live.snl.Fun.addShow;
+
 
 public class ListTubeAdapter extends RecyclerView.Adapter<ListTubeAdapter.Myholder> implements Filterable {
 
@@ -81,7 +83,7 @@ public class ListTubeAdapter extends RecyclerView.Adapter<ListTubeAdapter.Myhold
         myholder.fullLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//              addShow();
+              addShow();
                 context.startActivity(new Intent(context, playerview.class).putExtra("video_id",dataModel.getLink()).putExtra("key",true));
             }
         });
